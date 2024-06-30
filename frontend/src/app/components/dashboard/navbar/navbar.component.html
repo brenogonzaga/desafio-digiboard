@@ -1,0 +1,80 @@
+<div class="navbar-container">
+  <p-menubar [model]="items" styleClass="w-full md:w-auto">
+    <ng-template pTemplate="start">
+      <span class="inline-flex align-items-center gap-1 px-2 py-2">
+        <svg
+          width="33"
+          height="35"
+          viewBox="0 0 33 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="block mx-auto"
+        >
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <mask
+            id="mask0_1_36"
+            style="mask-type: luminance"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="31"
+            height="33"
+          >
+            <path
+              d="M10 10 L20 20 H30 V30 Z"
+              fill="var(--primary-color-text)"
+            />
+          </mask>
+          <g mask="url(#mask0_1_36)">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10 10 L20 20 H30 V30 Z"
+              fill="var(--primary-color)"
+            />
+          </g>
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M10 10 L20 20 H30 V30 Z"
+            fill="var(--primary-color)"
+          />
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M10 10 L20 20 H30 V30 Z"
+            fill="var(--primary-color)"
+          />
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+          <path d="M10 10 L20 20 H30 V30 Z" fill="var(--primary-color-text)" />
+        </svg>
+        <span class="font-medium text-xl font-semibold">
+          DIGI<span class="text-primary">BOARD</span>
+        </span>
+      </span>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <button
+        pRipple
+        class="relative overflow-hidden w-full p-link flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround"
+        [routerLink]="['/dashboard/my-profile']"
+      >
+        <p-avatar
+          image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+          class="mr-2"
+          shape="circle"
+        ></p-avatar>
+        <span class="inline-flex flex-column">
+          <span class="font-bold">{{ getName() }}</span>
+          <span class="text-sm">Admin</span>
+        </span>
+      </button>
+    </ng-template>
+  </p-menubar>
+</div>

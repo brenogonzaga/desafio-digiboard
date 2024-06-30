@@ -1,0 +1,59 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <p-card header="Login" [style]="{ width: '400px' }">
+      <div class="flex flex-column gap-2">
+        <label for="email">E-mail</label>
+        <input
+          pInputText
+          id="email"
+          aria-describedby="email-help"
+          class="w-full p-2"
+          placeholder="Digite seu e-mail"
+          type="email"
+          formControlName="email"
+        />
+        <small
+          id="email-help"
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="block p-error"
+        >
+          <div *ngIf="email.errors?.['email']">O e-mail deve ser válido.</div>
+          <div *ngIf="email.errors?.['required']">O e-mail é obrigatório.</div>
+        </small>
+      </div>
+      <div class="flex flex-column gap-2">
+        <label for="password">Senha</label>
+        <input
+          pInputText
+          id="password"
+          aria-describedby="password-help"
+          class="w-full p-2"
+          placeholder="Digite sua senha"
+          type="password"
+          formControlName="password"
+        />
+        <small
+          id="password-help"
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="block p-error"
+        >
+          <div *ngIf="password.errors?.['minlength']">
+            A senha deve ter pelo menos 8 caracteres.
+          </div>
+          <div *ngIf="password.errors?.['required']">
+            A senha é obrigatória.
+          </div>
+        </small>
+      </div>
+      <p-button
+        label="Login"
+        styleClass="w-full mt-3"
+        [disabled]="loginForm.invalid"
+        type="submit"
+      ></p-button>
+      <div class="mt-2">
+        Não tem uma conta? <a routerLink="/signup">Registre-se.</a>
+      </div>
+    </p-card>
+  </form>
+</div>

@@ -1,0 +1,147 @@
+<div class="container">
+  <form [formGroup]="updateProductForm" (ngSubmit)="onSubmit()">
+    <p-card header="Atualizar Produto" [style]="{ width: '400px' }">
+      <div class="flex flex-column gap-2">
+        <label for="imageUrl">URL da Imagem do Produto</label>
+        <input
+          pInputText
+          id="imageUrl"
+          class="w-full p-2"
+          placeholder="Digite a URL da imagem do produto"
+          formControlName="imageUrl"
+        />
+        <small
+          id="imageUrl-help"
+          *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+          class="block p-error"
+        >
+          <div *ngIf="imageUrl.errors?.['required']">
+            A URL da imagem do produto é obrigatória.
+          </div>
+        </small>
+        <div style="display: flex; justify-content: center">
+          <img
+            *ngIf="imageUrl.value"
+            [src]="imageUrl.value"
+            style="width: 100px; height: 100px"
+            alt="Pré-visualização da imagem do produto"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="productCode">Código do Produto</label>
+        <input
+          pInputText
+          id="productCode"
+          class="w-full p-2"
+          placeholder="Digite o código do produto"
+          formControlName="productCode"
+        />
+        <small
+          id="productCode-help"
+          *ngIf="
+            productCode.invalid && (productCode.dirty || productCode.touched)
+          "
+          class="block p-error"
+        >
+          <div *ngIf="productCode.errors?.['required']">
+            O código do produto é obrigatório.
+          </div>
+        </small>
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="description">Descrição</label>
+        <input
+          pInputText
+          id="description"
+          class="w-full p-2"
+          placeholder="Digite a descrição"
+          formControlName="description"
+        />
+        <small
+          id="description-help"
+          *ngIf="
+            description.invalid && (description.dirty || description.touched)
+          "
+          class="block p-error"
+        >
+          <div *ngIf="description.errors?.['required']">
+            A descrição é obrigatória.
+          </div>
+        </small>
+      </div>
+
+      <div class="flex">
+        <div class="flex flex-column gap-2">
+          <label for="entryDate">Data de Entrada</label>
+          <p-calendar
+            id="entryDate"
+            class="w-full"
+            formControlName="entryDate"
+            dateFormat="dd/mm/yy"
+          ></p-calendar>
+          <small
+            id="entryDate-help"
+            *ngIf="entryDate.invalid && (entryDate.dirty || entryDate.touched)"
+            class="block p-error"
+          >
+            <div *ngIf="entryDate.errors?.['required']">
+              A data de entrada é obrigatória.
+            </div>
+          </small>
+        </div>
+
+        <div class="flex flex-column gap-2">
+          <label for="expiryDate">Data de Validade</label>
+          <p-calendar
+            id="expiryDate"
+            class="w-full"
+            formControlName="expiryDate"
+            dateFormat="dd/mm/yy"
+          ></p-calendar>
+          <small
+            id="expiryDate-help"
+            *ngIf="
+              expiryDate.invalid && (expiryDate.dirty || expiryDate.touched)
+            "
+            class="block p-error"
+          >
+            <div *ngIf="expiryDate.errors?.['required']">
+              A data de validade é obrigatória.
+            </div>
+          </small>
+        </div>
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <label for="stock">Quantidade</label>
+        <input
+          pInputText
+          id="stock"
+          class="w-full p-2"
+          placeholder="Digite a quantidade"
+          formControlName="stock"
+          type="number"
+        />
+        <small
+          id="stock-help"
+          *ngIf="stock.invalid && (stock.dirty || stock.touched)"
+          class="block p-error"
+        >
+          <div *ngIf="stock.errors?.['required']">
+            O código do produto é obrigatório.
+          </div>
+        </small>
+      </div>
+
+      <p-button
+        label="Atualizar Produto"
+        styleClass="w-full mt-3"
+        [disabled]="updateProductForm.invalid"
+        type="submit"
+      ></p-button>
+    </p-card>
+  </form>
+</div>

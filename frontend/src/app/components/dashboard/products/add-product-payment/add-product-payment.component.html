@@ -1,0 +1,129 @@
+<div class="container">
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+    <p-card header="Pagamento Detalhes" [style]="{ width: 'auto' }">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-6">
+          <div class="p-field">
+            <label for="productId">ID do Produto</label>
+            <div class="flex align-items-center gap-2">
+              <input
+                id="productId"
+                type="text"
+                pInputText
+                formControlName="productId"
+                class="w-full"
+              />
+              <button
+                type="button"
+                pButton
+                icon="pi pi-search"
+                label="Buscar"
+                (click)="buscarProduto()"
+                class="w-full"
+              ></button>
+              <p-dialog
+                header="Selecione um Produto"
+                [(visible)]="showProductDialog"
+                [modal]="true"
+                [style]="{ width: '50vw' }"
+              >
+                <div *ngIf="produtos.length > 0">
+                  <ul>
+                    <li
+                      *ngFor="let produto of produtos"
+                      (click)="selectProduct(produto.id)"
+                    >
+                      {{ produto.description }}
+                    </li>
+                  </ul>
+                  <p-paginator
+                    [rows]="10"
+                    (onPageChange)="onProductPageChange($event)"
+                  ></p-paginator>
+                </div>
+                <p *ngIf="produtos.length === 0">Nenhum produto encontrado.</p>
+              </p-dialog>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-6">
+          <div class="p-field">
+            <label for="userId">ID do usuário</label>
+            <div class="flex align-items-center gap-2">
+              <input
+                id="userId"
+                type="text"
+                pInputText
+                formControlName="userId"
+                class="w-full"
+              />
+              <button
+                type="button"
+                pButton
+                icon="pi pi-search"
+                label="Buscar"
+                (click)="buscarUsuario()"
+                class="w-full"
+              ></button>
+              <!-- Diálogo para seleção de usuário -->
+              <p-dialog
+                header="Selecione um Usuário"
+                [(visible)]="showUserDialog"
+                [modal]="true"
+                [style]="{ width: '50vw' }"
+              >
+                <div *ngIf="usuarios.length > 0">
+                  <ul>
+                    <li
+                      *ngFor="let usuario of usuarios"
+                      (click)="selectUser(usuario.id)"
+                    >
+                      {{ usuario.name }}
+                    </li>
+                  </ul>
+                  <p-paginator
+                    [rows]="10"
+                    (onPageChange)="onUserPageChange($event)"
+                  ></p-paginator>
+                </div>
+                <p *ngIf="usuarios.length === 0">Nenhum usuário encontrado.</p>
+              </p-dialog>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-col-12 flex justify-content-between align-items-center mt-2 gap-2"
+      >
+        <label for="quantityPaid">Quantidade: </label>
+        <p-inputNumber
+          id="quantityPaid"
+          inputId="quantityPaid"
+          formControlName="quantityPaid"
+          [showButtons]="true"
+        ></p-inputNumber>
+      </div>
+      <div
+        class="p-col-12 flex justify-content-between align-items-center mt-2 gap-2"
+      >
+        <label for="deliveryDate">Data de entrega</label>
+        <p-calendar
+          id="deliveryDate"
+          [inputId]="'deliveryDate'"
+          formControlName="deliveryDate"
+          [showIcon]="true"
+        ></p-calendar>
+      </div>
+      <div class="p-d-flex p-jc-center">
+        <button
+          type="submit"
+          pButton
+          label="Cadastrar"
+          icon="pi pi-check"
+          class="w-full mt-2"
+          [disabled]="!paymentForm.valid"
+        ></button>
+      </div>
+    </p-card>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="flex justify-content-center mt-8">
+  <div *ngIf="user" class="p-grid">
+    <div class="p-col-12">
+      <p-card styleClass="user-card p-5">
+        <ng-template pTemplate="header">
+          <div class="flex align-items-center">
+            <img
+              src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+              alt="Profile"
+              class="profile-image"
+            />
+            <div class="flex flex-column ml-2">
+              <h2>{{ user.name }}</h2>
+              <p class="m-0 text-muted">{{ user.email }}</p>
+            </div>
+          </div>
+        </ng-template>
+        <div class="flex flex-column mt-4">
+          <div><strong>Endereço:</strong> Rua das Flores, 123</div>
+          <div><strong>Cidade:</strong> São Paulo</div>
+          <div><strong>Estado:</strong> SP</div>
+          <div><strong>País:</strong> Brasil</div>
+          <div><strong>CEP:</strong> 01001-000</div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
