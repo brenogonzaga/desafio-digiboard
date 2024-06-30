@@ -1,0 +1,46 @@
+<div class="flex justify-content-center mt-8">
+  <p-table [value]="products">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Imagem</th>
+        <th>Código do Produto</th>
+        <th>Descrição</th>
+        <th>Disponível</th>
+        <th>Data de Entrada</th>
+        <th>Data de Validade</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>
+          <img
+            [src]="
+              product.image || 'https://totalcomp.com/images/no-image.jpeg'
+            "
+            alt="Imagem do Produto"
+            style="width: 60px; height: 60px"
+          />
+        </td>
+        <td>{{ product.productCode }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.stock }}</td>
+        <td>{{ product.entryDate | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ product.expiryDate | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a
+            [routerLink]="'/dashboard/update-product/' + product.id"
+            class="p-button font-bold"
+          >
+            Atualizar
+          </a>
+          <p-button
+            (onClick)="deleteProduct(product)"
+            label="Excluir"
+            styleClass="font-bold p-button-danger"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

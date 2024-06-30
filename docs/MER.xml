@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="MER">
+    <mxGraphModel dx="1453" dy="860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Product Entity -->
+        <mxCell id="product" value="Product" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="product_id" value="id: number" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="0" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="product_code" value="productCode: string (unique)" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="30" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="product_description" value="description: string" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="60" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="product_stock" value="stock: number" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="90" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="product_imageUrl" value="imageUrl: string (nullable)" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="120" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="product_entryDate" value="entryDate: Date" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="150" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="product_expiryDate" value="expiryDate: Date" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="180" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="product_createdAt" value="createdAt: Date" style="text" vertex="1" parent="product">
+          <mxGeometry x="0" y="210" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- User Entity -->
+        <mxCell id="user" value="User" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="200" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="user_id" value="id: number" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="0" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user_name" value="name: string" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="30" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user_email" value="email: string (unique)" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="60" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user_password" value="password: string" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="90" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user_isActive" value="isActive: boolean" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="120" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user_isAdmin" value="isAdmin: boolean" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="150" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user_createdAt" value="createdAt: Date" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="180" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="user_updatedAt" value="updatedAt: Date" style="text" vertex="1" parent="user">
+          <mxGeometry x="0" y="210" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ProductPayment Entity -->
+        <mxCell id="productPayment" value="ProductPayment" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="80" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="productPayment_id" value="id: number" style="text" vertex="1" parent="productPayment">
+          <mxGeometry x="0" y="0" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="productPayment_product" value="product: Product" style="text" vertex="1" parent="productPayment">
+          <mxGeometry x="0" y="30" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="productPayment_user" value="user: User" style="text" vertex="1" parent="productPayment">
+          <mxGeometry x="0" y="60" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="productPayment_quantityPaid" value="quantityPaid: number" style="text" vertex="1" parent="productPayment">
+          <mxGeometry x="0" y="90" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="productPayment_deliveryDate" value="deliveryDate: Date" style="text" vertex="1" parent="productPayment">
+          <mxGeometry x="0" y="120" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="productPayment_createdAt" value="createdAt: Date" style="text" vertex="1" parent="productPayment">
+          <mxGeometry x="0" y="150" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="relationship1" value="" edge="1" parent="1" source="productPayment" target="product">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="relationship2" value="" edge="1" parent="1" source="productPayment" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

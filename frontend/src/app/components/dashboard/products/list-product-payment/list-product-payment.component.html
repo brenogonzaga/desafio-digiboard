@@ -1,0 +1,20 @@
+<div class="flex justify-content-center mt-8">
+  <p-table [value]="productsPayments">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome do Produto</th>
+        <th>Usuário</th>
+        <th>Quantidade Paga</th>
+        <th>Data de Entrega</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-productsPayment>
+      <tr>
+        <td>{{ productsPayment.productName }}</td>
+        <td>{{ productsPayment.user }}</td>
+        <td>{{ productsPayment.quantityPaid }}</td>
+        <td>{{ productsPayment.deliveryDate | date: 'dd/MM/yyyy' }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/backend"
+    schedule:
+      interval: "daily"
+      time: "10:00"
+    open-pull-requests-limit: 10
+    target-branch: "main"
+
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "daily"
+      time: "10:00"
+    open-pull-requests-limit: 10
+    target-branch: "main"
