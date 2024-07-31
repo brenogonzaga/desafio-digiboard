@@ -41,7 +41,7 @@ export class ListProductsComponent implements OnInit {
           summary: 'Sucesso',
           detail: 'Produto atualizado com sucesso',
         });
-        this.router.navigate(['/dashboard/list-products']);
+        this.router.navigate(['/dashboard/list-product']);
       },
       (error) => {
         this.messageService.add({
@@ -61,7 +61,9 @@ export class ListProductsComponent implements OnInit {
           summary: 'Sucesso',
           detail: 'Produto deletado com sucesso!',
         });
-        this.router.navigate(['/dashboard/list-products']);
+        this.products = this.products.filter(
+          (p) => p.productCode !== product.productCode,
+        );
       },
       (error) => {
         this.messageService.add({

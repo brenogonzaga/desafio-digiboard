@@ -133,6 +133,10 @@ export class UserService {
       throw new BadRequestException(`User with email ${email} already exists`);
     }
 
+    if (!password || password.length < 6) {
+      await this.userRepository.update(id, { name, email, isActive });
+      return;
+    }
     await this.userRepository.update(id, { name, email, password, isActive });
   }
   /**
@@ -154,6 +158,11 @@ export class UserService {
 
     if (findUser && findUser.email !== email) {
       throw new BadRequestException(`User with email ${email} already exists`);
+    }
+
+    if (!password || password.length < 6) {
+      await this.userRepository.update(id, { name, email, isActive });
+      return;
     }
 
     await this.userRepository.update(id, { name, email, password, isActive });
